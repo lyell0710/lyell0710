@@ -16,6 +16,7 @@
 | **[triton-kernels](https://github.com/lyell0710/triton-kernels)** | Triton 手写 LLM 算子库 | FA2 前向达 **SDPA-flash 的 87%**；流水线 GEMM **160.5 TFLOPS** 与 cuBLAS 打平；FP8 per-block GEMM **1.50×**；CUDA Graph 把小核 launch 塌缩 **11.8×** |
 | **[llm-engine](https://github.com/lyell0710/llm-engine)** | 从零手写 dense LLM 推理引擎 | 与 HuggingFace **逐位一致（max_abs_err = 0）**，llama / qwen2 / qwen3 三架构一套 config 驱动；接入自研融合算子后 decode 吞吐 **+44.1%** |
 | **[vllmExperience](https://github.com/lyell0710/vllmExperience)** | vLLM 部署形态选型 + MoE kernel 级分解 | 四臂全矩阵对照给出选型边界；request 级关联测得 **KV 传输等待占 TTFT 54–64%**；nsys 分解定位 fused MoE grouped GEMM 占 serving GPU 时间 **56%** |
+| **[LLM_Quantization](https://github.com/lyell0710/LLM_Quantization)** | GPTQ / AWQ / SmoothQuant 从零实现 | 同模型、同评测协议、同量化网格的控制变量对照：GPTQ 收回 RTN 损失 **61.6%**、AWQ **31.9%**、叠加只再 **+1.0pp**——一阶启发式与二阶补偿的差距被量出来了 |
 | **[sglang-prefix-lab](https://github.com/lyell0710/sglang-prefix-lab)** | SGLang RadixAttention 机理与收益边界 | 共享前缀下 TTFT p50 **−77%**（Qwen3-8B，含 disable-radix 反例臂与逐 token 计数器闭环）；LRU 命中不是衰减而是**重用距离越线即崩塌** |
 
 ### 方法
